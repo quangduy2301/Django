@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Giới thiệu{% endblock %}
+
+{% block css %}
+    <style>
+        body {
+            background-color: #0000ff70;
+        }
+        .center {
+            display: block;
+            width: 200px;
+            height: 200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        dialog {
+            /* Initial styles when closed */
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, display 0.3s allow-discrete, overlay 0.3s allow-discrete;
+        }
+
+        dialog[open] {
+            /* Styles when open */
+            opacity: 1;
+        }
+
+        @starting-style {
+            dialog[open] {
+                /* Styles *before* the dialog opens, for a smooth entry */
+                opacity: 0;
+            }
+        }
+
+        dialog::backdrop {
+            /* Styles for the backdrop */
+            background: hsl(0 0% 0% / 0%);
+            transition: background 0.3s ease-in-out;
+        }
+
+        dialog[open]::backdrop {
+            background: hsl(0 0% 0% / 50%);
+        }
+
+        @starting-style {
+            dialog[open]::backdrop {
+                background: hsl(0 0% 0% / 0%);
+            }
+        }
+        main, footer {
+            animation-name: Hien_tu_tu;
+            animation-duration: 1s;
+        }
+        @keyframes Hien_tu_tu {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-center text-uppercase text-bg-primary p-2">Trang chủ</h1>
+    <br>
+    <nav class="bg-secondary">
+        <a href="myblog\home\templates\index.html" title="Trang chủ" class="fs-3 mx-1 text-primary text-decoration-none">Trang chủ</a>
+        <a href="myblog\about\templates\index.html" title="Giới thiệu" class="fs-3 mx-1 text-danger text-decoration-none">Giới thiệu</a>
+        <a href="myblog\contact\templates\index.html" title="Liên hệ" class="fs-3 mx-1 text-warning text-decoration-none">Liên hệ</a>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <img src="https://lh3.googleusercontent.com/a/ACg8ocJ-WMTzq3SY6bJBdZVIHA80wn5wAIErZmg9kVaHMoOJ-SU440AN=s288-c-no" title="Ảnh dại diện" class="rounded-circle center">
+    <h2 class="text-center text-uppercase text-bg-primary p-3">Xin chào tất cả các bạn.</h2>
+    <p>Mình là Đặng Quang Duy, học lớp 11A8 trường THPT Nguyễn Gia Thiều. Mình có sở thích là học lập trình.<br>Sau này khi mình lớn lên, mình sẽ trở thành lập trình viên.</p>
+    <button title="Thêm thông tin" class="btn btn-primary" onclick="document.getElementById('myDialog_1').showModal()">Thêm thông tin</button>
+    <dialog id="myDialog_1" aria-labelledby="dialogTitle_1" style="border: none;">
+        <h2 style="text-transform: uppercase;" id="dialogTitle_1">Thông tin thêm của mình</h2>
+        <ul>
+            <li>Kỹ năng: Lập trình.</li>
+            <li>Kinh nghiệm: Không có.</li>
+        </ul>
+        <form method="dialog">
+            <button title="Đóng" class="btn btn-primary">Đóng</button>
+        </form>
+    </dialog>
+{% endblock %}
