@@ -66,18 +66,21 @@
     <h1 class="text-center text-uppercase text-bg-primary p-2">Trang chủ</h1>
     <br>
     <nav class="bg-secondary">
-        <a href="myblog\home\templates\index.html" title="Trang chủ" class="fs-3 mx-1 text-primary text-decoration-none">Trang chủ</a>
-        <a href="myblog\about\templates\index.html" title="Giới thiệu" class="fs-3 mx-1 text-danger text-decoration-none">Giới thiệu</a>
-        <a href="myblog\contact\templates\index.html" title="Liên hệ" class="fs-3 mx-1 text-warning text-decoration-none">Liên hệ</a>
+        <a href="/" title="Trang chủ" class="fs-3 mx-1 text-primary text-decoration-none">Trang chủ</a>
+        <a href="/about/" title="Giới thiệu" class="fs-3 mx-1 text-danger text-decoration-none">Giới thiệu</a>
+        <a href="/contact/" title="Liên hệ" class="fs-3 mx-1 text-warning text-decoration-none">Liên hệ</a>
     </nav>
 {% endblock %}
 
 {% block content %}
-    <img src="https://lh3.googleusercontent.com/a/ACg8ocJ-WMTzq3SY6bJBdZVIHA80wn5wAIErZmg9kVaHMoOJ-SU440AN=s288-c-no" title="Ảnh dại diện" class="rounded-circle center">
-    <h2 class="text-center text-uppercase text-bg-primary p-3">Xin chào tất cả các bạn.</h2>
-    <p>Mình là Đặng Quang Duy, học lớp 11A8 trường THPT Nguyễn Gia Thiều. Mình có sở thích là học lập trình.<br>Sau này khi mình lớn lên, mình sẽ trở thành lập trình viên.</p>
-    <button title="Thêm thông tin" class="btn btn-primary" onclick="document.getElementById('myDialog_1').showModal()">Thêm thông tin</button>
-    <dialog id="myDialog_1" aria-labelledby="dialogTitle_1" style="border: none;">
+    <br>
+    <div class="bg-primary-subtle">
+        <img src="https://lh3.googleusercontent.com/a/ACg8ocJ-WMTzq3SY6bJBdZVIHA80wn5wAIErZmg9kVaHMoOJ-SU440AN=s288-c-no" title="Ảnh dại diện" class="rounded-circle center">
+        <h2 class="text-primary p-3">Xin chào tất cả các bạn.</h2>
+        <p>Mình là Đặng Quang Duy, học lớp 11A8 trường THPT Nguyễn Gia Thiều. Mình có sở thích là học lập trình.<br>Sau này khi mình lớn lên, mình sẽ trở thành lập trình viên.</p>
+        <button title="Thêm thông tin" class="btn btn-primary" onclick="document.getElementById('myDialog_1').showModal()">Thêm thông tin</button>
+    </div>
+    <dialog class="bg-secondary-subtle" id="myDialog_1" aria-labelledby="dialogTitle_1" style="border: none;">
         <h2 style="text-transform: uppercase;" id="dialogTitle_1">Thông tin thêm của mình</h2>
         <ul>
             <li>Kỹ năng: Lập trình.</li>

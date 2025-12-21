@@ -7,7 +7,4 @@ from django.template import loader
 
 
 def index(rq):
-    return HttpResponse(loader.get_template('index.html').render())
-
-def index2(rq):
-    return HttpResponse(loader.get_template('index.html').render())
+    return HttpResponse(loader.get_template('about/index.html').render())

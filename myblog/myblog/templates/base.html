@@ -7,8 +7,13 @@
 {% block css %}{% endblock %}
 <body>
     <header>
-        {% block header %}
-        {% endblock %}
+        <h1 class="text-center text-uppercase text-bg-primary p-2">Trang chủ</h1>
+    <br>
+    <nav class="bg-secondary">
+        <a href="/" title="Trang chủ" class="fs-3 mx-1 text-primary text-decoration-none">Trang chủ</a>
+        <a href="/about/index.html" title="Giới thiệu" class="fs-3 mx-1 text-danger text-decoration-none">Giới thiệu</a>
+        <a href="/contact/index.html" title="Liên hệ" class="fs-3 mx-1 text-warning text-decoration-none">Liên hệ</a>
+    </nav>
     </header>
     <main>
         {% block content %}
@@ -17,8 +22,8 @@
     <footer>
         {% block footer %}
         {% endblock %}
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
 </body>
 </html>
