@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Giới thiệu{% endblock %}
+
+{% block css %}
+    <style>
+        body {
+            background-color: #0000ff70;
+        }
+        .center {
+            display: block;
+            width: 200px;
+            height: 200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        dialog {
+            /* Initial styles when closed */
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, display 0.3s allow-discrete, overlay 0.3s allow-discrete;
+        }
+
+        dialog[open] {
+            /* Styles when open */
+            opacity: 1;
+        }
+
+        @starting-style {
+            dialog[open] {
+                /* Styles *before* the dialog opens, for a smooth entry */
+                opacity: 0;
+            }
+        }
+
+        dialog::backdrop {
+            /* Styles for the backdrop */
+            background: hsl(0 0% 0% / 0%);
+            transition: background 0.3s ease-in-out;
+        }
+
+        dialog[open]::backdrop {
+            background: hsl(0 0% 0% / 50%);
+        }
+
+        @starting-style {
+            dialog[open]::backdrop {
+                background: hsl(0 0% 0% / 0%);
+            }
+        }
+        main, footer {
+            animation-name: Hien_tu_tu;
+            animation-duration: 1s;
+        }
+        @keyframes Hien_tu_tu {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <br>
+    <div class="bg-primary-subtle">
+        <img src="https://lh3.googleusercontent.com/a/ACg8ocJ-WMTzq3SY6bJBdZVIHA80wn5wAIErZmg9kVaHMoOJ-SU440AN=s288-c-no" title="Ảnh dại diện" class="rounded-circle center">
+    </div>
+    <h2 class="text-primary p-3">Các phương tiện liên hệ với mình:</h2>
+    <a class="fs-4 bg-primary text-black text-decoration-none" href="https://www.facebook.com/quang.duy.ang.2024" title="Facebook">Facebook</a>
+    <a class="fs-4 bg-primary text-black text-decoration-none" href="https://zalo.me/0836142488" title="Zalo">Zalo</a>
+{% endblock %}
