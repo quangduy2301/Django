@@ -70,18 +70,27 @@
         <p>Mình là Đặng Quang Duy, học lớp 11A8 trường THPT Nguyễn Gia Thiều. Mình có sở thích là học lập trình.<br>Sau này khi mình lớn lên, mình sẽ trở thành lập trình viên.</p>
         <button title="Thêm thông tin" class="btn btn-primary" onclick="document.getElementById('myDialog_1').showModal()">Thêm thông tin</button>
     </div>
-    <dialog class="bg-secondary-subtle" id="myDialog_1" aria-labelledby="dialogTitle_1" style="border: none;">
-        <h2 style="text-transform: uppercase;" id="dialogTitle_1">Thông tin thêm của mình</h2>
+    <dialog style="width: 1000px; border: none;" class="bg-secondary-subtle" id="myDialog_1" aria-labelledby="dialogTitle_1" style="border: none;">
+        <h2 style="text-transform: uppercase; text-align: center; font-size: 42px" id="dialogTitle_1">Thông tin thêm</h2>
+        <br>
         <ul>
-            <li>Kỹ năng: Lập trình.</li>
-            <li>Kinh nghiệm: Không có.</li>
-            <li>Số thành viên trong gia đình: 4.</li>
+            <li>Tiểu sử:</li>
             <ul>
+                <li>Ngày sinh: 23/1/2009.</li>
+                <li>Học tại trường: THPT Nguyễn Gia Thiều.</li>
+            </ul>
+            <li>Thông tin thêm của mình:</li>
+            <ul>
+                <li>Kỹ năng: Lập trình.</li>
+                <li>Kinh nghiệm: Không có.</li>
+            </ul>
+            <li>Số thành viên trong gia đình: 4. Gồm có:</li>
+            <ol>
                 <li>Đặng Quang Duy (mình).</li>
                 <li>Lê Bảo Ảnh (mẹ của mình).</li>
                 <li>Đặng Quang Dũng (bố của mình).</li>
                 <li>Đặng Quang Thái Hưng (em trai của mình).</li>
-            </ul>
+            </ol>
         </ul>
         <form method="dialog">
             <button title="Đóng" class="btn btn-primary">Đóng</button>
