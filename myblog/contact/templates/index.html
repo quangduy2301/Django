@@ -5,43 +5,95 @@
 {% block css %}
     <style>
         body {
-            background-color: #0000ff70;
+            background: linear-gradient(135deg, #0000ff50 0%, #0000ff30 100%);
         }
-        .center {
+        .profile-section {
+            background: linear-gradient(to bottom, #e7f3ff, #f0f8ff);
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 139, 0.1);
+            margin-bottom: 30px;
+        }
+        .profile-image {
             display: block;
             width: 200px;
             height: 200px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 5px solid #0066cc;
+            box-shadow: 0 4px 20px rgba(0, 102, 204, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+        .contact-section {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .contact-title {
+            font-size: 1.8rem;
+            color: #0066cc;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .contact-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .contact-btn {
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            color: white;
+        }
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        .btn-facebook {
+            background: linear-gradient(135deg, #0866f2, #0a66d2);
+        }
+        .btn-zalo {
+            background: linear-gradient(135deg, #0084ff, #0073e6);
+        }
+        .btn-email {
+            background: linear-gradient(135deg, #ea4c89, #d91e63);
+        }
+        .btn-phone {
+            background: linear-gradient(135deg, #25d366, #1faa51);
         }
         dialog {
-            /* Initial styles when closed */
             opacity: 0;
             transition: opacity 0.3s ease-in-out, display 0.3s allow-discrete, overlay 0.3s allow-discrete;
         }
-
         dialog[open] {
-            /* Styles when open */
             opacity: 1;
         }
-
         @starting-style {
             dialog[open] {
-                /* Styles *before* the dialog opens, for a smooth entry */
                 opacity: 0;
             }
         }
-
         dialog::backdrop {
-            /* Styles for the backdrop */
             background: hsl(0 0% 0% / 0%);
             transition: background 0.3s ease-in-out;
         }
-
         dialog[open]::backdrop {
             background: hsl(0 0% 0% / 50%);
         }
-
         @starting-style {
             dialog[open]::backdrop {
                 background: hsl(0 0% 0% / 0%);
@@ -62,12 +114,34 @@
     </style>
 {% endblock %}
 {% block content %}
-    <br>
-    <br>
-    <div class="bg-primary-subtle">
-        <img src="https://lh3.googleusercontent.com/a/ACg8ocJ-WMTzq3SY6bJBdZVIHA80wn5wAIErZmg9kVaHMoOJ-SU440AN=s288-c-no" title="Ảnh dại diện" class="rounded-circle center">
-    </div>
-    <h2 class="text-primary p-3">Các phương tiện liên hệ với mình:</h2>
-    <a class="fs-4 bg-primary text-black text-decoration-none" href="https://www.facebook.com/quang.duy.ang.2024" title="Facebook">Facebook</a>
-    <a class="fs-4 bg-primary text-black text-decoration-none" href="https://zalo.me/0836142488" title="Zalo">Zalo</a>
+    <main>
+        <div class="profile-section">
+            <img 
+                src="https://lh3.googleusercontent.com/a/ACg8ocJ-WMTzq3SY6bJBdZVIHA80wn5wAIErZmg9kVaHMoOJ-SU440AN=s288-c-no" 
+                title="Ảnh đại diện Quang Duy" 
+                class="profile-image"
+                alt="Quang Duy"
+            >
+            <h1 class="text-primary mb-3">Xin chào! Tôi là Quang Duy</h1>
+            <p class="text-secondary fs-5">Chào mừng bạn đến với trang web của tôi</p>
+        </div>
+
+        <div class="contact-section">
+            <h2 class="contact-title">📞 Các phương tiện liên hệ</h2>
+            <div class="contact-buttons">
+                <a class="contact-btn btn-facebook" href="https://www.facebook.com/quang.duy.ang.2024" title="Facebook" target="_blank" rel="noopener noreferrer">
+                    👍 Facebook
+                </a>
+                <a class="contact-btn btn-zalo" href="https://zalo.me/0836142488" title="Zalo" target="_blank" rel="noopener noreferrer">
+                    💬 Zalo
+                </a>
+                <a class="contact-btn btn-email" href="mailto:your-email@example.com" title="Email">
+                    ✉️ Email
+                </a>
+                <a class="contact-btn btn-phone" href="tel:+84836142488" title="Phone">
+                    📱 Gọi điện
+                </a>
+            </div>
+        </div>
+    </main>
 {% endblock %}
