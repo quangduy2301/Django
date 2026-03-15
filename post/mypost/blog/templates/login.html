@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <h1 class="text-uppercase">Đăng nhập</h1>
+    <label for="user">Tên đăng nhập</label>
+    {{ form.username }}
+    <br>
+    <br>
+    <label for="pass">Mật khẩu</label>
+    {{ form.password }}
+    <br>
+    <br>
+    <button type="submit" title="Đăng nhập">Đăng nhập</button>
+</form>
+{% endblock %}

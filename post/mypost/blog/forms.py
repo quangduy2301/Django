@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class LoginForm(forms.ModelForm):
     class Meta:
         model = User
-        fiends = ['username','password']
+        fields = ['username','password']
         widgets = {
             'username': forms.TextInput(attrs={
                 'class': 'form-control',
