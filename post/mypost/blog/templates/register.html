@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+</head>
+{% extends "base.html" %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <h1 class="text-uppercase text-center">Đăng ký</h1>
+    <br>
+    <label class="fs-4">Tên đăng nhập</label>
+    {{ form.username }}
+    <br>
+    <br>
+    <label class="fs-4">Email</label>
+    {{ form.email }}
+    <br>
+    <br>
+    <label class="fs-4">Mật khẩu</label>
+    {{ form.password }}
+    <br>
+    <br>
+    <label class="fs-4">Xác nhận mật khẩu</label>
+    {{ form.password }}
+    <br>
+    <br>
+    <button type="submit" title="Đăng ký" class="btn btn-primary fs-6">Đăng ký</button>
+</form>
+{% endblock %}

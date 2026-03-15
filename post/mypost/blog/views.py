@@ -1,10 +1,12 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import (
+    CreateView,
     FormView,
     ListView
 )
 from .models import Post
-from .forms import LoginForm
+from .forms import LoginForm, RegisterForm
 from django.contrib.auth.models import User
 
 
@@ -18,4 +20,9 @@ class PostListView(ListView):
 class LoginView(FormView):
     model = User
     form_class = LoginForm
-    template_name = "login.html"
+    template_name = 'login.html'
+    
+class RegisterView(CreateView):
+    form_class = RegisterForm
+    template_name = 'register.html'
+    success_url = reverse_lazy('login')
