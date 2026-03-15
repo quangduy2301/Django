@@ -13,6 +13,6 @@ class LoginForm(forms.ModelForm):
             }),
             'password': forms.PasswordInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Password'
+                'placeholder': 'password'
             })
         }

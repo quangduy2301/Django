@@ -9,16 +9,16 @@
 {% block content %}
 <form method="post">
     {% csrf_token %}
-    <h1 class="text-uppercase">Đăng nhập</h1>
+    <h1 class="text-uppercase text-center">Đăng nhập</h1>
     <br>
-    <label for="user">Tên đăng nhập</label>
+    <label for="user" class="fs-4">Tên đăng nhập</label>
     {{ form.username }}
     <br>
     <br>
-    <label for="pass">Mật khẩu</label>
+    <label for="pass" class="fs-4">Mật khẩu</label>
     {{ form.password }}
     <br>
     <br>
-    <button type="submit" title="Đăng nhập" class="btn btn-primary">Đăng nhập</button>
+    <button type="submit" title="Đăng nhập" class="btn btn-primary fs-6">Đăng nhập</button>
 </form>
 {% endblock %}
