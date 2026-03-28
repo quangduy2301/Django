@@ -13,7 +13,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="/blog/" title="Trang chủ">Trang chủ</a>
+          <a class="nav-link text-primary" href="/blog/" title="Trang chủ">Trang chủ</a>
         </li>
         {% if not user.is_authenticated %}
           <li class="nav-item">
@@ -24,17 +24,17 @@
           </li>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="#" title="Viết bài mới">Viết bài mới</a>
+            <a class="nav-link text-secondary" href="{% url 'post-create %'}" title="Viết bài mới">Viết bài mới</a>
           </li>
           {% if user.is_superuser %}
             <li class="nav-item">
-              <li class="nav-link text-warning" href="#" title="Quản lý hệ thống">Quản lý hệ thống</li>
+              <a class="nav-link text-warning" href="{% url 'admin:index %'}" title="Quản lý hệ thống">Quản lý hệ thống</a>
             </li>
           {% endif %}
           <li class="nav-item">
             <form action="{% url 'logout' %}" method="post" class="d-inline">
               {% csrf_token %}
-              <button type="submit" title="Đăng xuất" class="btn btn-link nav-link">Đăng xuất</button>
+              <button type="submit" title="Đăng xuất" class="btn btn-link nav-link text-danger">Đăng xuất</button>
             </form>
           </li>
         {% endif %}
