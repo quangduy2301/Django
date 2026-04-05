@@ -3,14 +3,22 @@
 {% block content %}
     <hr>
     <h1>{{ post.title }}</h1>
+    <article>
+        <p>Bởi {{ post.author.username }} vào {{ post.created_at|date:"d/m/Y" }}</p>
+        {% if user == post.author %}
+            <div>
+                <a title="Sửa bài đăng" class="btn btn-warning" href="{% url 'post-update'} post.pk">Sửa bài đăng</a>
+                <a title="Xóa bài đăng" class="btn btn-danger" href="{% url 'post-delete'} post.pk">Xóa bài đăng</a>
+            </div>
+        {% endif %}
+        <hr>
+        <p><b>Nội dung bài đăng:</b><br>{{ post.content|truncatewords:30 }}</p>
+    </article>
     <hr>
-    {% for post in posts %}
-        <article>
-            <p>Bởi {{ post.author.username }} vào {{ post.created_at|date:"d/m/Y" }}</p>
-            <p>{{ post.content|truncatewords:30 }}</p>
-        </article>
-    {% endfor %}
-    <hr>
-    <h2>Bình luận</h2>
-    <button>Viết bình luận</button>
+    <h2 class="text-uppercase">Bình luận</h2>
+    <a href="#" title="Viết bình luận" class="btn btn-primary">Viết bình luận</a>
+    <br>
+    <br>
+    <label for="binh_luan"></label>
+    <textarea type="text" id="binh_luan" class="form-control w-50" rows="3" placeholder="Viết bình luận..."></textarea>
 {% endblock %}

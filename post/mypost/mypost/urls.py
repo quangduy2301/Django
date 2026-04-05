@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
-from blog.views import RegisterView
+from blog.views import PostDetailView, RegisterView, PostCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
     path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('register/', RegisterView.as_view(), name="register")
+    path('register/', RegisterView.as_view(), name="register"),
+    path('post/<int:pk>', PostDetailView.as_view(), name="post-detail"),
+    path('blog/new/', PostCreateView.as_view(), name="post-create"),
 ]

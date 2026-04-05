@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+    <hr>
+    <h1 class="text-uppercase">Thêm bài mới</h1>
+    <br>
+    <form method="POST">
+        {% csrf_token %}
+
+        <label class="fs-4">Tiêu đề</label>
+        {{ form.title }}
+        <br>
+        <br>
+        <label class="fs-4">Nội dung</label>
+        {{ form.content }}
+        <br>
+        <button title="Đăng bài" type="submit" class="btn btn-primary">Đăng bài</button>
+        <button title="Hủy" class="btn btn-secondary">Hủy</button>
+    </form>
+{% endblock %}
