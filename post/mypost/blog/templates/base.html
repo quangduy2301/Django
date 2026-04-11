@@ -24,11 +24,11 @@
           </li>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link text-success" href="{% url 'post-create' %}" title="Viết bài mới">Viết bài mới</a>
+            <a class="nav-link text-secondary" href="{% url 'post-create' %}" title="Thêm bài mới">Thêm bài mới</a>
           </li>
           {% if user.is_superuser %}
             <li class="nav-item">
-              <a class="nav-link text-warning" href="{% url 'admin:index %'}" title="Quản lý hệ thống">Quản lý hệ thống</a>
+              <a class="nav-link text-warning" href="/admin/" title="Quản lý hệ thống">Quản lý hệ thống</a>
             </li>
           {% endif %}
           <li class="nav-item">
