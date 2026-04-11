@@ -45,7 +45,8 @@ class PostForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Nhập tiêu đề...'
+                'placeholder': 'Nhập tiêu đề...',
+                'autofocus': 'True'
             }),
             'content': forms.Textarea(attrs={
                 'class': 'form-control',
