@@ -53,25 +53,25 @@
       }
 
       const Binh_luan = document.getElementById("binh_luan");
-      const Cac_nut_cho_viet_binh_luan = document.getElementById("cac_nut_cho_viet_binh_luan");
-      Cac_nut_cho_viet_binh_luan.style.opacity = "0";
-      Cac_nut_cho_viet_binh_luan.style.display = "none";
+      const Nut_binh_luan_va_huy = document.querySelector(".nut_binh_luan_va_huy");
+      Nut_binh_luan_va_huy.style.opacity = "0";
+      Nut_binh_luan_va_huy.style.display = "none";
 
       // Hiện các nút "Bình luận" và "Hủy"
       Binh_luan.onfocus = () => {
-        Cac_nut_cho_viet_binh_luan.style.display = "block";
+        Nut_binh_luan_va_huy.style.display = "block";
         setTimeout(() => {
-          Cac_nut_cho_viet_binh_luan.style.opacity = "1";
+          Nut_binh_luan_va_huy.style.opacity = "1";
         }, 0);
       };
       
       // Ẩn các nút "Bình luận" và "Hủy"
       Binh_luan.onblur = () => {
         setTimeout(() => {
-          Cac_nut_cho_viet_binh_luan.style.display = "none";
+          Nut_binh_luan_va_huy.style.display = "none";
         }, 500);
         setTimeout(() => {
-          Cac_nut_cho_viet_binh_luan.style.opacity = "0";
+          Nut_binh_luan_va_huy.style.opacity = "0";
         }, 75);
       };
     </script>

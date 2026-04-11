@@ -4,7 +4,7 @@
     <hr>
     <h1>{{ post.title }}</h1>
     <style>
-        #cac_nut_cho_viet_binh_luan {
+        .nut_binh_luan_va_huy {
             transition: 0.3s ease-in-out;
         }
     </style>
@@ -27,8 +27,8 @@
     <label for="binh_luan"></label>
     <textarea type="text" id="binh_luan" class="form-control w-75" rows="3" placeholder="Viết bình luận..."></textarea>
     <br>
-    <div id="cac_nut_cho_viet_binh_luan">
+    <div class="nut_binh_luan_va_huy">
         <button title="Bình luận" type="submit" class="btn btn-success">Bình luận</button>
-        <button title="Hủy" class="btn btn-danger">Hủy</button>
+        <button title="Hủy" type="reset" class="btn btn-danger">Hủy</button>
     </div>
 {% endblock %}
