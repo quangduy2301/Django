@@ -16,18 +16,18 @@
             </div>
         {% endif %}
         <hr>
-        <p><b>Nội dung bài đăng:</b><br>{{ post.content|truncatewords:30 }}</p>
+        <p>{{ post.content|truncatewords:30 }}</p>
     </article>
     <hr>
     <h2 class="text-uppercase">Bình luận</h2>
-    <button onclick="Focus()" title="Viết bình luận" class="btn btn-primary">Viết bình luận</button>
+    <button onclick="Focus()" title="Viết bình luận" class="btn btn-secondary">Viết bình luận</button>
     <br>
     <br>
     <label for="binh_luan"></label>
-    <textarea type="text" id="binh_luan" class="form-control w-75" rows="3" style="resize: none;"  placeholder="Viết bình luận..."></textarea>
+    <textarea type="text" name="binh_luan" id="binh_luan" class="form-control w-75" rows="3" style="resize: none;"  placeholder="Viết bình luận..."></textarea>
     <br>
     <div class="nut_binh_luan_va_huy">
-        <button title="Bình luận" type="submit" class="btn btn-success">Bình luận</button>
-        <button title="Hủy" type="reset" class="btn btn-danger">Hủy</button>
+        <button title="Bình luận" type="submit" class="btn btn-primary">Bình luận</button>
+        <button title="Hủy" type="reset" class="btn btn-secondary">Hủy</button>
     </div>
 {% endblock %}
