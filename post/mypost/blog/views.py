@@ -2,15 +2,16 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import (
     CreateView,
+    DeleteView,
     FormView,
     ListView,
     DetailView,
+    UpdateView,
 )
 from .models import Post
 from .forms import LoginForm, PostForm,  RegisterForm
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
-
 
 # Create your views here.
 class PostListView(ListView):
@@ -29,6 +30,27 @@ class LoginView(FormView):
     form_class = LoginForm
     template_name = 'login.html'
     
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'post_form.html'
+    
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
+
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Post
+    template_name = 'post_confirm_delete.html'
+    context_object_name = 'post'
+    success_url = reverse_lazy('post_list')
+    
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.author
+
 class RegisterView(CreateView):
     model = User
     form_class = RegisterForm

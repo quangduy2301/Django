@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <h1 class="text-uppercase">Bạn có muốn xóa bài đăng "{{ post.title }}"?</h1>
+            <p>Hành động này không thể hoàn tác.</p>
+        </fieldset>
+        <div>
+            <button title="Xóa" type="submit" class="btn btn-danger">Xóa</button>
+            <a href="{% url 'post-detail' post.pk %}" title="Hủy" class="btn btn-secondary">Hủy</a>
+        </div>
+    </form>
+{% endblock %}
