@@ -14,6 +14,6 @@
         {{ form.content }}
         <br>
         <button title="Đăng bài" type="submit" class="btn btn-primary">Đăng bài</button>
-        <a href="/blog/" title="Hủy" class="btn btn-secondary">Hủy</a>
+        <a href="{% url 'post-detail' post.pk %}" title="Hủy" class="btn btn-secondary">Hủy</a>
     </form>
 {% endblock %}
