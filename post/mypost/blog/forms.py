@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Post
+from .models import Post, Comment
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(label="Email", required=True)
@@ -53,3 +53,17 @@ class PostForm(forms.ModelForm):
                 'rows': 8
             }),
         }
+        
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['body']
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['body'].widget.attrs.update({
+            'class': 'form-control',
+            'rows': '3',
+            'placeholder': 'Viết bình luận...'
+        })
+        self.fields['body'].label = ""

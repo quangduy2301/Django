@@ -2,10 +2,9 @@
 {% block content %}
     <hr>
     <h1 class="text-uppercase">Thêm bài mới</h1>
-    <br>
+    <hr>
     <form method="POST">
         {% csrf_token %}
-
         <label class="fs-4">Tiêu đề</label>
         {{ form.title }}
         <br>

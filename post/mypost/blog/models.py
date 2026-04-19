@@ -18,4 +18,9 @@ class Post(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name="comments", on_delete=models.CASCADE)
-    author = models
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    body = models.TextField(verbose_name="Nội dung bình luận")
+    date_added = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f'{self.post.title} - {self.author.username}'
