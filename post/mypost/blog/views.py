@@ -9,7 +9,7 @@ from django.views.generic import (
     UpdateView,
 )
 from .models import Post
-from .forms import LoginForm, PostForm,  RegisterForm
+from .forms import CommentForm, LoginForm, PostForm,  RegisterForm, Comment
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 
@@ -65,3 +65,16 @@ class PostCreateView (LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+    
+class AddCommentView(LoginRequiredMixin, CreateView):
+    model = Comment
+    form_class = CommentForm
+    template_name = 'add_comment.html'
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        form.instance.post_id = self.kwargs['pk']
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        return reverse_lazy('post-detail', kwargs={'pk': self.kwargs['pk']})

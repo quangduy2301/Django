@@ -11,7 +11,7 @@
         <p>{{ post.content|truncatewords:30 }}</p>
     </article>
     {% empty %}
-        <h2>Không có bài đăng nào.</h2>
+        <h2>Chưa có bài đăng nào.</h2>
         <p>Để thêm bài đăng mới, bấm chuột vào nút "Thêm bài mới".</p>
         <a href="{% url 'post-create' %}" title="Thêm bài mới" class="btn btn-primary">Thêm bài mới</a>
     {% endfor %}
