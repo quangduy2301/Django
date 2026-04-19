@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blog của tôi</title>
+    <title>{{ post.title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   </head>
   <body>
@@ -24,11 +24,11 @@
           </li>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link text-secondary" href="{% url 'post-create' %}" title="Thêm bài mới">Thêm bài mới</a>
+            <a class="nav-link text-success" href="{% url 'post-create' %}" title="Thêm bài mới">Thêm bài mới</a>
           </li>
           {% if user.is_superuser %}
             <li class="nav-item">
-              <a class="nav-link text-warning" href="/admin/" title="Quản lý hệ thống">Quản lý hệ thống</a>
+              <a class="nav-link text-secondary" href="#" title="Quản lý hệ thống">Quản lý hệ thống</a>
             </li>
           {% endif %}
           <li class="nav-item">
