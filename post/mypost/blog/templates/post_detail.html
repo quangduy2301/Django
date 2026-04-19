@@ -2,11 +2,6 @@
 {% block content %}
     <hr>
     <h1>{{ post.title }}</h1>
-    <style>
-        .nut_binh_luan_va_huy {
-            transition: 0.3s ease-in-out;
-        }
-    </style>
     <article>
         <p>Bởi {{ post.author.username }} vào {{ post.created_at|date:"d/m/Y" }}</p>
         {% if user == post.author %}
@@ -20,14 +15,5 @@
     </article>
     <hr>
     <h2 class="text-uppercase">Bình luận</h2>
-    <button onclick="Focus()" title="Viết bình luận" class="btn btn-secondary">Viết bình luận</button>
-    <br>
-    <br>
-    <label for="binh_luan"></label>
-    <textarea type="text" name="binh_luan" id="binh_luan" class="form-control w-75" rows="3" style="resize: none;"  placeholder="Viết bình luận..."></textarea>
-    <br>
-    <div class="nut_binh_luan_va_huy">
-        <button title="Bình luận" type="submit" class="btn btn-primary">Bình luận</button>
-        <button title="Hủy" type="reset" class="btn btn-secondary">Hủy</button>
-    </div>
+    <a href="#" title="Viết bình luận" class="btn btn-secondary">Viết bình luận</a>
 {% endblock %}
