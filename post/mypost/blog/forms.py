@@ -30,11 +30,11 @@ class LoginForm(forms.ModelForm):
         widgets = {
             'username': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'username'
+                'placeholder': 'username',
             }),
             'password': forms.PasswordInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'password'
+                'placeholder': 'password',
             })
         }
         
@@ -46,11 +46,11 @@ class PostForm(forms.ModelForm):
             'title': forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Nhập tiêu đề...',
-                'autofocus': 'True'
             }),
             'content': forms.Textarea(attrs={
                 'class': 'form-control',
-                'rows': 8
+                'placeholder': 'Nhập nội dung...',
+                'rows': 4,
             }),
         }
         
@@ -64,6 +64,6 @@ class CommentForm(forms.ModelForm):
         self.fields['body'].widget.attrs.update({
             'class': 'form-control',
             'rows': '3',
-            'placeholder': 'Viết bình luận...'
+            'placeholder': 'Viết bình luận của bạn...'
         })
         self.fields['body'].label = ""

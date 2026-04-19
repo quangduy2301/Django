@@ -14,13 +14,13 @@
         <p>{{ post.content|truncatewords:30 }}</p>
     </article>
     <hr>
-    <h2>Bình luận</h2>
-    <a href="{% url 'add-comment' post.pk %}" title="Viết bình luận" class="btn btn-secondary">Viết bình luận</a>
+    <h1>Bình luận</h1>
+    <a href="{% url 'add-comment' post.pk %}" title="Viết bình luận" class="btn btn-primary">Viết bình luận</a>
     <div class="comments-section">
         <div class="d-flex justify-content-between align-items-center mb-4">
         </div>
         {% if not post.comments.all %}
-            <h3>Chưa có bình luận nào.</h3>
+            <h2>Chưa có bình luận nào.</h2>
             <p>Hãy là người đầu tiên bình luận.</p>
         {% else %}
             {% for comment in post.comments.all %}
