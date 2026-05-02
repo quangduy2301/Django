@@ -19,6 +19,14 @@
         <label class="fs-4">Nội dung</label>
         {{ form.content }}
         <br>
+        <p>Quyền riêng tư của bài đăng</p>
+        <input type="radio" id="cong_khai" name="quyen_rieng_tu" required>
+        <label for="cong_khai">Công khai</label>
+        <br>
+        <input type="radio" id="chi_minh_toi" name="quyen_rieng_tu">
+        <label for="chi_minh_toi">Chỉ mình tôi</label>
+        <br>
+        <br>
         <button title="Đăng bài" type="submit" class="btn btn-primary">Đăng bài</button>
         <a href="javascript:history.back()" title="Hủy" class="btn btn-secondary">Hủy</a>
     </form>
