@@ -12,6 +12,7 @@ from .models import Post
 from .forms import CommentForm, LoginForm, PostForm,  RegisterForm, Comment
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
+from django.db.models import Q
 
 # Create your views here.
 class PostListView(ListView):
@@ -19,6 +20,17 @@ class PostListView(ListView):
     template_name = "post_list.html"
     context_object_name = "posts"
     ordering = ["-created_at"]
+    
+    paginate_by = 3
+    
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            return Post.objects.filter(
+                Q(title__icontains=query) | Q(content__icontains=query)
+            ).order_by("-created_at")
+
+        return Post.objects.all().order_by("-created_at")
 
 class PostDetailView(DetailView):
     model = Post

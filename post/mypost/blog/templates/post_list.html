@@ -12,7 +12,7 @@
     <hr>
     {% for post in posts %}
     <article>
-        <h2><a href="{% url 'post-detail' post.pk %}" class="text-primary text-decoration-none">{{ post.title }}</a></h2>
+        <h2><a href="{% url 'post-detail' post.pk %}" title="{{ post.title }}" class="text-primary text-decoration-none">{{ post.title }}</a></h2>
         <p>Bởi {{ post.author.username }} vào {{ post.created_at|date:"d/m/Y" }}</p>
         <p>{{ post.content|truncatewords:30 }}</p>
     </article>
@@ -21,4 +21,20 @@
         <p>Để thêm bài đăng mới, bấm chuột vào nút "Thêm bài mới".</p>
         <a href="{% url 'post-create' %}" title="Thêm bài mới" class="btn btn-primary">Thêm bài mới</a>
     {% endfor %}
+    <nav aria-label="Page navigation" class="mt-4">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a title="Trang đầu" class="page-link" href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">&laquo; Trang đầu</a>
+                </li>
+                <li>
+                    <a title="Trang trước" class="page-link" href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Trang trước</a>
+                </li>
+            {% endif %}
+            {% for num in page_obj.paninator.page_range %}
+                {% if page_obj.number == num %}
+                    <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                
+        </ul>
+    </nav>
 {% endblock %}

@@ -11,6 +11,10 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="/blog/" title="Blog của tôi">Blog của tôi</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="d-flex" action="{% url 'post_list' %}" method="GET">
+        <input class="form-control me-2" type="search" name="q" placeholder="Tìm bài đăng..." value="{{ request.GET.q }}">
+        <button title="Tìm" class="btn btn-secondary">Tìm</button>
+      </form>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link text-secondary" href="/blog/" title="Trang chủ">Trang chủ</a>

@@ -32,5 +32,4 @@ urlpatterns = [
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name="post-delete"),
     path('blog/new/', PostCreateView.as_view(), name="post-create"),
     path('post/<int:pk>/comment/', AddCommentView.as_view(), name='add-comment'),
-    path('post/<int:pk>/reply/', AddCommentView.as_view(), name='reply-comment'),
 ]
