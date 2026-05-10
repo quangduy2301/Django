@@ -22,6 +22,7 @@ from blog.views import AddCommentView, PostDeleteView, PostDetailView, RegisterV
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('blog.urls')),
     path('blog/', include('blog.urls')),
     path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
     path('accounts/', include('django.contrib.auth.urls')),
