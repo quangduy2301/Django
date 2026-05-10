@@ -31,10 +31,23 @@
                     <a title="Trang trước" class="page-link" href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Trang trước</a>
                 </li>
             {% endif %}
-            {% for num in page_obj.paninator.page_range %}
+            {% for num in page_obj.paginator.page_range %}
                 {% if page_obj.number == num %}
                     <li class="page-item active"><span class="page-link">{{ num }}</span></li>
-                
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <li class="page-item">
+                        <a title="{{ num }}" class="page-link" href="?page={{ num }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ num }}</a>
+                    </li>
+                {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+            <li class="page-item">
+                <a title="Trang sau" class="page-link" href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Trang sau</a>
+            </li>
+            <li class="page-item">
+                <a title="Trang cuối" class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Trang cuối</a>
+            </li>
+        {% endif %}
         </ul>
     </nav>
 {% endblock %}
