@@ -12,14 +12,22 @@
             <hr>
             <h1 class="text-uppercase">Bình luận của bài đăng</h1>
             <hr>
-            <form method="POST">
+            <form method="POST" onsubmit="chuyen_nut()">
                 {% csrf_token %}
                 <div class="mb-3">
                     {{ form.body }}
                 </div>
-                <button title="Gửi bình luận" type="submit" class="btn btn-primary">Gửi bình luận</button>
+                <button id="send_btn" title="Gửi bình luận" type="submit" class="btn btn-primary">Gửi bình luận</button>
                 <a href="javascript:history.back()" title="Hủy" class="btn btn-secondary">Hủy</a>
             </form>
         </div>
     </div>
+    <script>
+        <!-- Chuyển chữ trong nút -->
+        function chuyen_nut() {
+            var btn = document.getElementById("send_btn");
+            btn.textContent = 'Đang gửi bình luận...';
+            btn.disabled = true;
+        }
+    </script>
 {% endblock %}
