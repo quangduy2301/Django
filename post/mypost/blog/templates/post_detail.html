@@ -3,10 +3,10 @@
     <hr>
     <h1 class="text-uppercase">{{ post.title }}</h1>
     <article>
-        <p>Bởi {{ post.author.username }} vào {{ post.created_at|date:"d/m/Y" }}</p>
+        <p class="text-muted">Bởi {{ post.author.username }} vào {{ post.created_at|date:"d/m/Y" }}</p>
         {% if user == post.author %}
             <div>
-                <a title="Sửa bài đăng" class="btn btn-primary" href="{% url 'post-update' post.pk %}">Sửa bài đăng</a>
+                <a title="Sửa bài đăng" class="btn btn-warning" href="{% url 'post-update' post.pk %}">Sửa bài đăng</a>
                 <a title="Xóa bài đăng" class="btn btn-danger" href="{% url 'post-delete' post.pk %}">Xóa bài đăng</a>
             </div>
         {% endif %}
@@ -14,14 +14,39 @@
         <p>{{ post.content|truncatewords:30 }}</p>
     </article>
     <hr>
-    <h1>Bình luận</h1>
-    <a href="{% url 'add-comment' post.pk %}" title="Viết bình luận" class="btn btn-secondary">Viết bình luận</a>
+    <div>
+        <form action="{% url 'like-post' post.pk %}">
+            {% csrf_token %}
+            {% if user.is_authenticated %}
+                {% if user in post.likes.all %}
+                    <button id="like_btn" title="Bỏ thích" type="submit" class="btn btn-danger">❤ Bỏ thích</button>
+                {% else %}
+                    <button id="like_btn" title="Thích ngay" type="submit" class="btn btn-outline-danger">❤ Thích ngay</button>
+                {% endif %}
+            {% else %}
+                    <h3 class="text-danger">Bạn chưa đăng nhập.</h2>
+                    <p class="text-muted">Đăng nhập để thích bài đăng này.</p>
+                    <a href="{% url 'login' %}" class="btn btn-danger" title="Đăng nhập để thích">❤ Đăng nhập để thích</a>
+            {% endif %}
+        </form>
+        <span class="ms-3 text-muted">
+            {% if post.total_likes == 0 %}
+                <h4 class="text-danger">Chưa có lượt thích nào cho bài đăng của bạn.</h4>
+                <p>Hãy là người đầu tiên thích bài đăng.</p>
+            {% else %}
+                <h4 class="text-success">{{ post.total_likes }} lượt thích cho bài đăng của bạn.</h4>
+            {% endif %}
+        </span>
+    </div>
+    <hr>
+    <h1>Bình luận ({{ post.comments.count }})</h1>
+    <a href="{% url 'add-comment' post.pk %}" title="Viết bình luận" class="btn btn-primary">Viết bình luận</a>
     <div class="comments-section">
         <div class="d-flex justify-content-between align-items-center mb-4">
         </div>
         {% if not post.comments.all %}
-            <h2>Chưa có bình luận nào.</h2>
-            <p>Hãy là người đầu tiên bình luận.</p>
+            <h4 class="text-danger">Chưa có bình luận nào.</h4>
+            <p class="text-muted">Hãy là người đầu tiên bình luận.</p>
         {% else %}
             {% for comment in post.comments.all %}
                 <div class="card mb-3 shadow-sm">

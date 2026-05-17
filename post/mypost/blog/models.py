@@ -5,10 +5,14 @@ from django.urls import reverse
 # Create your models here.
 class Post(models.Model):
     title = models.CharField(max_length=200)
+    likes = models.ManyToManyField(User, related_name='blog_posts', blank=True)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    
+    def total_likes(self):
+        return self.likes.count()
     
     def __str__(self):
         return self.title

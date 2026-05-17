@@ -8,7 +8,7 @@
 {% extends "base.html" %}
 {% block content %}
     <hr>
-    <form method="POST">
+    <form method="POST" onsubmit="chuyen_nut()">
         {% csrf_token %}
         <fieldset>
             <h1 class="text-uppercase">Bạn có muốn xóa bài đăng "{{ post.title }}"?</h1>
@@ -16,8 +16,15 @@
             <hr>
         </fieldset>
         <div>
-            <button title="Xóa" type="submit" class="btn btn-danger">Xóa</button>
+            <button title="Xóa" id="delete_btn" type="submit" class="btn btn-danger">Xóa</button>
             <a href="javascript:history.back()" title="Hủy" class="btn btn-secondary">Hủy</a>
         </div>
     </form>
+    <script>
+        function chuyen_nut() {
+            var btn = document.getElementById("delete_btn");
+            btn.textContent = 'Đang xóa...';
+            btn.disabled = true;
+        }
+    </script>
 {% endblock %}

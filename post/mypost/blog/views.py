@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from profile import Profile
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import (
     CreateView,
@@ -90,3 +92,12 @@ class AddCommentView(LoginRequiredMixin, CreateView):
     
     def get_success_url(self):
         return reverse_lazy('post-detail', kwargs={'pk': self.kwargs['pk']})
+    
+@login_required
+def like_post(request, pk):
+    post = get_object_or_404(Post, id=pk)
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+    else:
+        post.likes.add(request.user)
+    return redirect(request.META.get('HTTP_REFERER','post-list'))

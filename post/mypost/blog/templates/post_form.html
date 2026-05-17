@@ -10,7 +10,7 @@
     <hr>
     <h1 class="text-uppercase">Thêm bài mới</h1>
     <hr>
-    <form method="POST">
+    <form method="POST" onsubmit="chuyen_nut()">
         {% csrf_token %}
         <label class="fs-4">Tiêu đề</label>
         {{ form.title }}
@@ -19,7 +19,14 @@
         <label class="fs-4">Nội dung</label>
         {{ form.content }}
         <br>
-        <button title="Đăng bài" type="submit" class="btn btn-primary">Đăng bài</button>
+        <button id="post_btn" title="Đăng bài" type="submit" class="btn btn-primary">Đăng bài</button>
         <a href="javascript:history.back()" title="Hủy" class="btn btn-secondary">Hủy</a>
     </form>
+    <script>
+        function chuyen_nut() {
+            var btn = document.getElementById("post_btn");
+            btn.textContent = 'Đang đăng bài...';
+            btn.disabled = true;
+        }
+    </script>
 {% endblock %}
