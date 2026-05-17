@@ -19,6 +19,12 @@
     {{ form.password }}
     <br>
     <br>
+    {% if form.errors %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Tên đăng nhập hoặc mật khẩu không đúng!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
     <button type="submit" id="login_btn" title="Đăng nhập" class="btn btn-primary fs-6">Đăng nhập</button>
     <a href="javascript:history.back()" id="cancel_btn" title="Hủy" class="btn btn-secondary">Hủy</a>
 </form>
