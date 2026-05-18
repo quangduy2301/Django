@@ -31,10 +31,10 @@
         </form>
         <span class="ms-3 text-muted">
             {% if post.total_likes == 0 %}
-                <h4 class="text-danger">Chưa có lượt thích nào cho bài đăng của bạn.</h4>
+                <h3 class="text-danger">Chưa có lượt thích nào cho bài đăng của bạn.</h3>
                 <p>Hãy là người đầu tiên thích bài đăng.</p>
             {% else %}
-                <h4 class="text-success">{{ post.total_likes }} lượt thích cho bài đăng của bạn.</h4>
+                <h3 class="text-success">{{ post.total_likes }} lượt thích cho bài đăng của bạn.</h3>
             {% endif %}
         </span>
     </div>
@@ -45,7 +45,7 @@
         <div class="d-flex justify-content-between align-items-center mb-4">
         </div>
         {% if not post.comments.all %}
-            <h4 class="text-danger">Chưa có bình luận nào.</h4>
+            <h3 class="text-danger">Chưa có bình luận nào.</h3>
             <p class="text-muted">Hãy là người đầu tiên bình luận.</p>
         {% else %}
             {% for comment in post.comments.all %}
