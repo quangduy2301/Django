@@ -11,8 +11,8 @@
     <form method="POST" onsubmit="chuyen_nut()">
         {% csrf_token %}
         <fieldset>
-            <h1 class="text-uppercase">Bạn có muốn xóa bài đăng "{{ post.title }}"?</h1>
-            <p>Hành động này không thể hoàn tác.</p>
+            <h1 class="text-uppercase text-danger">Bạn có muốn xóa bài đăng "{{ post.title }}"?</h1>
+            <p class="text-muted">Hành động này không thể hoàn tác.</p>
             <hr>
         </fieldset>
         <div>

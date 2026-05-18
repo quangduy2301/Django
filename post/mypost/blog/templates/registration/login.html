@@ -9,7 +9,7 @@
 {% block content %}
 <form method="post" onsubmit="changeButton()">
     {% csrf_token %}
-    <h1 class="text-uppercase text-center">Đăng nhập</h1>
+    <h1 class="text-uppercase text-center text-success">Đăng nhập</h1>
     <br>
     <label for="user" class="fs-4">Tên đăng nhập</label>
     {{ form.username }}

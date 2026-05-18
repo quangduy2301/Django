@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <hr>
-    <h1 class="text-uppercase">{{ post.title }}</h1>
+    <h1 class="text-uppercase text-primary">{{ post.title }}</h1>
     <article>
         <p class="text-muted">Bởi {{ post.author.username }} vào {{ post.created_at|date:"d/m/Y" }}</p>
         {% if user == post.author %}
@@ -24,7 +24,7 @@
                     <button id="like_btn" title="Thích ngay" type="submit" class="btn btn-outline-danger">❤ Thích ngay</button>
                 {% endif %}
             {% else %}
-                    <h3 class="text-danger">Bạn chưa đăng nhập.</h2>
+                    <h4 class="text-danger">Bạn chưa đăng nhập.</h4>
                     <p class="text-muted">Đăng nhập để thích bài đăng này.</p>
                     <a href="{% url 'login' %}" class="btn btn-danger" title="Đăng nhập để thích">❤ Đăng nhập để thích</a>
             {% endif %}
@@ -39,7 +39,7 @@
         </span>
     </div>
     <hr>
-    <h1>Bình luận ({{ post.comments.count }})</h1>
+    <h1 class="text-muted">Bình luận ({{ post.comments.count }})</h1>
     <a href="{% url 'add-comment' post.pk %}" title="Viết bình luận" class="btn btn-primary">Viết bình luận</a>
     <div class="comments-section">
         <div class="d-flex justify-content-between align-items-center mb-4">
