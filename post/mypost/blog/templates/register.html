@@ -7,27 +7,34 @@
 </head>
 {% extends "base.html" %}
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    <h1 class="text-uppercase text-center text-uppercase">Đăng ký</h1>
-    <br>
-    <label class="fs-4">Tên đăng nhập</label>
-    {{ form.username }}
-    <br>
-    <br>
-    <label class="fs-4">Email</label>
-    {{ form.email }}
-    <br>
-    <br>
-    <label class="fs-4">Mật khẩu</label>
-    {{ form.password }}
-    <br>
-    <br>
-    <label class="fs-4">Xác nhận mật khẩu</label>
-    {{ form.password }}
-    <br>
-    <br>
-    <button type="submit" title="Đăng ký" class="btn btn-primary fs-6">Đăng ký</button>
-    <a href="javascript:history.back()" title="Hủy" class="btn btn-secondary">Hủy</a>
-</form>
+    <form method="post" onsubmit="chuyen_nut()">
+        {% csrf_token %}
+        <h1 class="text-uppercase text-center text-uppercase">Đăng ký</h1>
+        <br>
+        <label class="fs-4">Tên đăng nhập</label>
+        {{ form.username }}
+        <br>
+        <br>
+        <label class="fs-4">Email</label>
+        {{ form.email }}
+        <br>
+        <br>
+        <label class="fs-4">Mật khẩu</label>
+        {{ form.password }}
+        <br>
+        <br>
+        <label class="fs-4">Xác nhận mật khẩu</label>
+        {{ form.password }}
+        <br>
+        <br>
+        <button type="submit" id="register_btn" title="Đăng ký" class="btn btn-primary fs-6">Đăng ký</button>
+        <a href="javascript:history.back()" title="Hủy" class="btn btn-secondary">Hủy</a>
+    </form>
+    <script>
+        function chuyen_nut() {
+            var btn = document.getElementById("register_btn");
+            btn.textContent = 'Đang đăng ký...';
+            btn.disabled = true;
+        }
+    </script>
 {% endblock %}
