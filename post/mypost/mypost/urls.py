@@ -21,16 +21,16 @@ from django.contrib.auth import views as auth_views
 from blog.views import AddCommentView, PostDeleteView, PostDetailView, RegisterView, PostUpdateView, PostCreateView, like_post
 
 urlpatterns = [
-    path('vi/', include('blog.urls')),
-    path('vi/admin/', admin.site.urls),
-    path('vi/blog/', include('blog.urls')),
-    path('vi/accounts/login/', auth_views.LoginView.as_view(), name='login'),
-    path('vi/accounts/', include('django.contrib.auth.urls')),
-    path('vi/register/', RegisterView.as_view(), name="register"),
-    path('vi/post/<int:pk>', PostDetailView.as_view(), name="post-detail"),
-    path('vi/post/<int:pk>/update', PostUpdateView.as_view(), name="post-update"),
-    path('vi/post/<int:pk>/delete/', PostDeleteView.as_view(), name="post-delete"),
-    path('vi/blog/new/', PostCreateView.as_view(), name="post-create"),
-    path('vi/post/<int:pk>/like/', like_post, name='like-post'),
-    path('vi/post/<int:pk>/comment/', AddCommentView.as_view(), name='add-comment'),
+    path('', include('blog.urls')),
+    path('admin/', admin.site.urls),
+    path('blog/', include('blog.urls')),
+    path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('register/', RegisterView.as_view(), name="register"),
+    path('post/<int:pk>', PostDetailView.as_view(), name="post-detail"),
+    path('post/<int:pk>/update', PostUpdateView.as_view(), name="post-update"),
+    path('post/<int:pk>/delete/', PostDeleteView.as_view(), name="post-delete"),
+    path('blog/new/', PostCreateView.as_view(), name="post-create"),
+    path('post/<int:pk>/like/', like_post, name='like-post'),
+    path('post/<int:pk>/comment/', AddCommentView.as_view(), name='add-comment'),
 ]
