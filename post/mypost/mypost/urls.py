@@ -21,8 +21,8 @@ from django.contrib.auth import views as auth_views
 from blog.views import AddCommentView, PostDeleteView, PostDetailView, RegisterView, PostUpdateView, PostCreateView, like_post
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', include('blog.urls')),
+    path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
     path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
     path('accounts/', include('django.contrib.auth.urls')),
