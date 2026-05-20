@@ -9,36 +9,36 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/blog/" title="Blog của tôi">Blog của tôi</a>
+    <a class="navbar-brand" href="/blog/">Blog của tôi</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <form class="d-flex" action="{% url 'post_list' %}" method="GET">
       <input class="form-control me-3" type="search" name="q" placeholder="Tìm bài đăng..." value="{{ request.GET.q }}">
-      <button title="Tìm" class="btn btn-secondary">Tìm</button>
+      <button class="btn btn-secondary">Tìm</button>
     </form>
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
-        <a class="nav-link text-primary" href="/blog/" title="Trang chủ">Trang chủ</a>
+        <a class="nav-link text-primary" href="/blog/">Trang chủ</a>
       </li>
       {% if not user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link text-success" href="{% url 'login' %}" title="Đăng nhập">Đăng nhập</a>
+          <a class="nav-link text-success" href="{% url 'login' %}">Đăng nhập</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-secondary" href="/register" title="Đăng ký">Đăng ký</a>
+          <a class="nav-link text-secondary" href="/register">Đăng ký</a>
         </li>
       {% else %}
         <li class="nav-item">
-          <a class="nav-link text-success" href="{% url 'post-create' %}" title="Thêm bài mới">Thêm bài mới</a>
+          <a class="nav-link text-success" href="{% url 'post-create' %}">Thêm bài mới</a>
         </li>
         {% if user.is_superuser %}
           <li class="nav-item">
-            <a class="nav-link text-secondary" href="/admin/" title="Quản lý hệ thống">Quản lý hệ thống</a>
+            <a class="nav-link text-secondary" href="/admin/">Quản lý hệ thống</a>
           </li>
         {% endif %}
         <li class="nav-item">
           <form action="{% url 'logout' %}" method="post" class="d-inline">
             {% csrf_token %}
-            <button type="submit" title="Đăng xuất" class="btn btn-link nav-link text-danger">Đăng xuất</button>
+            <button type="submit" class="btn btn-link nav-link text-danger">Đăng xuất</button>
           </form>
         </li>
       {% endif %}
