@@ -32,7 +32,7 @@
         </li>
         {% if user.is_superuser %}
           <li class="nav-item">
-            <a class="nav-link text-secondary" href="/admin/">Quản lý hệ thống</a>
+            <a class="nav-link text-muted" href="{% url 'profile' %}">Chào, {{ user.username }}!</a>
           </li>
         {% endif %}
         <li class="nav-item">

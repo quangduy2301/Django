@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cập nhật thông tin cá nhân</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+{% extends "base.html" %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-4 text-center mb-4">
+            <div class="card shadow border-0 p-4">
+                <div class="mb-3">
+                    {% if user.profile.avatar %}
+                        <img src="{{ user.profile.avatar.url }}" class="rounded-circle img-thumbnail shadow-sm" style="width: 150px; height: 150px" alt="">
+                    {% else %}
+                        <img src="https://sloganhay.com/wp-content/uploads/2026/03/avatar-mac-dinh-facebook-10.jpg" class="rounded-circle img-thumbnail shadow-sm" style="width: 150px; height: 150px" alt="">
+                    {% endif %}
+                </div>
+                <h4 class="fw-bold text-dark mb-1">{{ user.username }}</h4>
+                <p class="text-muted small mb-3">{{ user.email }}</p>
+                <div class="p-3 bg-light rounded text-start">
+                    <h6 class="fw-bold text-secondary text-uppercase small">Tiểu sử</h6>
+                    <p class="mb-0 card-text">
+                        {% if user.profile.bio %}
+                            {{ user.profile.bio }}
+                        {% else %}
+                            <span class="text-muted italic">Chưa có tiểu sử.</span>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card shadow border-0 p-4">
+            <h3 class="fw-bold mb-4 text-primary text-uppercase">Cập nhật thông tin cá nhân</h3>
+            {% if messages %}
+                {% for message in messgaes %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="POST" enctype="multipart/form-data" onsubmit="chuyen_nut()">
+                {% csrf_token %}
+                <h5 class="text-secondary text-uppercase mb-3 border-bottom pb-2">Thông tin tài khoản</h5>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Tên tài khoản</label>
+                    {{ u_form.username }}
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Địa chỉ Email</label>
+                    {{ u_form.email }}
+                </div>
+                <h5 class="text-secondary text-uppercase mb-3 border-bottom pb-2">Thông tin Profile</h5>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Thay đổi ảnh đại diện</label>
+                    {{ p_form.avatar }}
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Viết gì đó về bạn</label>
+                    {{ p_form.bio }}
+                </div>
+                <div class="mt-4">
+                    <button type="submit" id="submit_btn" class="btn btn-primary mx-4 py-2 fw-bold">Lưu thay đổi</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function chuyen_nut() {
+            var btn = document.getElementById("submit_btn");
+            btn.textContent = 'Đang lưu thay đổi...';
+            btn.disabled = true;
+        }
+    </script>
+{% endblock %}

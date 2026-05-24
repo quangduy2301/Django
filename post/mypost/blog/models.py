@@ -28,3 +28,11 @@ class Comment(models.Model):
     
     def __str__(self):
         return f'{self.post.title} - {self.author.username}'
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField(max_length=300, blank=True, verbose_name="Tiểu sử")
+    avatar = models.ImageField(blank=True, null=True)
+    
+    def __str__(self):
+        return f'Profile của {self.user.username}'
