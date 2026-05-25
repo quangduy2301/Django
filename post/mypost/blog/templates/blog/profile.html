@@ -48,7 +48,7 @@
 
             <form method="POST" enctype="multipart/form-data" onsubmit="chuyen_nut()">
                 {% csrf_token %}
-                <h5 class="text-secondary text-uppercase mb-3 border-bottom pb-2">Thông tin tài khoản</h5>
+                <h5 class="text-secondary mb-3 border-bottom pb-2">Thông tin tài khoản</h5>
                 <div class="mb-3">
                     <label class="form-label fw-bold">Tên tài khoản</label>
                     {{ u_form.username }}
@@ -57,17 +57,18 @@
                     <label class="form-label fw-bold">Địa chỉ Email</label>
                     {{ u_form.email }}
                 </div>
-                <h5 class="text-secondary text-uppercase mb-3 border-bottom pb-2">Thông tin Profile</h5>
+                <h5 class="text-secondary mb-3 border-bottom pb-2">Thông tin Profile</h5>
                 <div class="mb-3">
                     <label class="form-label fw-bold">Thay đổi ảnh đại diện</label>
                     {{ p_form.avatar }}
                 </div>
                 <div class="mb-3">
-                    <label class="form-label fw-bold">Viết gì đó về bạn</label>
+                    <label class="form-label fw-bold">Thêm tiểu sử</label>
                     {{ p_form.bio }}
                 </div>
                 <div class="mt-4">
-                    <button type="submit" id="submit_btn" class="btn btn-primary mx-4 py-2 fw-bold">Lưu thay đổi</button>
+                    <button type="submit" id="submit_btn" class="btn btn-primary fw-bold">Lưu thay đổi</button>
+                    <a href="javascript:history.back()" class="btn btn-secondary fw-bold">Hủy</a>
                 </div>
             </form>
         </div>

@@ -86,4 +86,4 @@ class ProfileUpdateForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['avatar'].widget.attrs.update({'class': 'form-control'})
-        self.fields['bio'].widget.attrs.update({'class': 'form-control', 'rows': 3})
+        self.fields['bio'].widget.attrs.update({'class': 'form-control', 'rows': 3, 'placeholder': 'Viết gì đó về bạn...'})
