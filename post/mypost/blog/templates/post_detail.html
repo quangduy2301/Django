@@ -9,6 +9,14 @@
                 <a class="btn btn-warning" href="{% url 'post-update' post.pk %}">Sửa bài đăng</a>
                 <a class="btn btn-danger" href="{% url 'post-delete' post.pk %}">Xóa bài đăng</a>
             </div>
+        {% else %}
+            {% if user.is_authenticated %}
+                <h4 class="text-danger">Bạn không thể sửa hay xóa bài đăng này vì bạn không phải là người tạo bài đăng.</h4>
+            {% else %}
+                <h4 class="text-danger">Bạn chưa đăng nhập.</h4>
+                <p class="text-muted">Đăng nhập để sửa hoặc xóa bài đăng này.</p>
+                <a href="{% url 'login' %}" class="btn btn-primary">Đăng nhập</a>
+            {% endif %}
         {% endif %}
         <hr>
         <p>{{ post.content|truncatewords:30 }}</p>
