@@ -31,10 +31,9 @@
         </form>
         <span class="ms-3 text-muted">
             {% if post.total_likes == 0 %}
-                <h4 class="text-danger">Chưa có lượt thích nào cho bài đăng của bạn.</h4>
-                <p>Hãy là người đầu tiên thích bài đăng.</p>
+                <h4 class="text-danger">Chưa có lượt thích</h4>
             {% else %}
-                <h4 class="text-success">{{ post.total_likes }} lượt thích cho bài đăng của bạn.</h4>
+                <h4 class="text-success">{{ post.total_likes }} lượt thích</h4>
             {% endif %}
         </span>
     </div>
