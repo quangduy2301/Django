@@ -9,7 +9,7 @@
 {% block content %}
     <form method="post" onsubmit="changeButton()">
         {% csrf_token %}
-        <h1 class="text-uppercase text-center text-success">Đăng nhập</h1>
+        <h1 class="text-uppercase text-center text-primary">Đăng nhập</h1>
         <br>
         <label for="user" class="fs-4">Tên đăng nhập</label>
         {{ form.username }}
@@ -26,7 +26,7 @@
             </div>
         {% endif %}
         <button type="submit" id="login_btn" class="btn btn-primary fs-6">Đăng nhập</button>
-        <a href="javascript:history.back()" id="cancel_btn" class="btn btn-secondary">Hủy</a>
+        <a href="/blog/" class="btn btn-secondary">Hủy</a>
     </form>
     <script>
         function changeButton() {

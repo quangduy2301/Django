@@ -9,7 +9,7 @@
 {% block content %}
     <form method="post" onsubmit="chuyen_nut()">
         {% csrf_token %}
-        <h1 class="text-uppercase text-center text-uppercase">Đăng ký</h1>
+        <h1 class="text-uppercase text-center text-primary">Đăng ký</h1>
         <br>
         <label class="fs-4">Tên đăng nhập</label>
         {{ form.username }}
@@ -28,7 +28,7 @@
         <br>
         <br>
         <button type="submit" id="register_btn" class="btn btn-primary fs-6">Đăng ký</button>
-        <a href="javascript:history.back()" class="btn btn-secondary">Hủy</a>
+        <a href="/blog/" class="btn btn-secondary">Hủy</a>
     </form>
     <script>
         function chuyen_nut() {
