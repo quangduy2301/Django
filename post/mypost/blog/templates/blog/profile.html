@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +10,7 @@
 {% block content %}
     <div class="row">
         <div class="col-md-4 text-center mb-4">
-            <div class="card shadow border-0 p-4">
+            <div class="card shadow border-0 p-4 bg-light">
                 <div class="mb-3">
                     {% if user.profile.avatar %}
                         <img src="{{ user.profile.avatar.url }}" class="rounded-circle img-thumbnail shadow-sm" style="width: 150px; height: 150px" alt="">
@@ -35,7 +35,7 @@
     </div>
 
     <div class="col-md-8">
-        <div class="card shadow border-0 p-4">
+        <div class="card shadow border-0 p-4 bg-light">
             <h3 class="fw-bold mb-4 text-primary text-uppercase">Cập nhật thông tin cá nhân</h3>
             {% if messages %}
                 {% for message in messgaes %}
