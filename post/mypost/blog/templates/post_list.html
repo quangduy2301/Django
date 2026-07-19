@@ -15,26 +15,24 @@
             <h2><a href="{% url 'post-detail' post.pk %}" class="text-decoration-none link-primary">{{ post.title }}</a></h2>
             <p class="fs-5">Bởi {{ post.author.username }} vào {{ post.created_at|date:"d/m/Y" }}</p>
             <p>{{ post.content|truncatewords:30 }}</p>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Tùy chọn
-            </button>
+            <!-- Nút bấm mở cửa sổ phụ "Tùy chọn" -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tùy chọn</button>
             <hr>
-            <!-- Modal -->
+            <!-- Cửa sổ phụ "Tùy chọn" -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+                <div class="modal-content bg-success">
                     <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-uppercase" id="exampleModalLabel">Tùy chọn</h1>
+                    <h1 class="modal-title fs-3 text-uppercase text-primary" id="exampleModalLabel">Tùy chọn của bài đăng</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Bạn muốn chỉnh sửa, xóa hay viết bình luận bài đăng này?</p>
-                    <!-- Chỉnh sửa -->
+                    <p class="text-light">Bạn muốn chỉnh sửa, xóa hay viết bình luận bài đăng này?</p>
+                    <!-- Nút "Sửa bài đăng" -->
                     <a class="btn btn-warning" href="{% url 'post-update' post.pk %}">Sửa bài đăng</a>
-                    <!-- Xóa -->
+                    <!-- Nút "Xóa bài đăng" -->
                     <a class="btn btn-danger" href="{% url 'post-delete' post.pk %}">Xóa bài đăng</a>
-                    <!-- Viết bình luận -->
+                    <!-- Nút "Viết bình luận" -->
                     <a href="{% url 'add-comment' post.pk %}" class="btn btn-primary">Viết bình luận</a>
                 </div>
             </div>
