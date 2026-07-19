@@ -15,38 +15,18 @@
             <h2><a href="{% url 'post-detail' post.pk %}" class="text-decoration-none link-primary">{{ post.title }}</a></h2>
             <p class="fs-5">Bởi {{ post.author.username }} vào {{ post.created_at|date:"d/m/Y" }}</p>
             <p>{{ post.content|truncatewords:30 }}</p>
-            <!-- Nút bấm mở cửa sổ phụ "Tùy chọn" -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tùy chọn</button>
             <hr>
-            <!-- Cửa sổ phụ "Tùy chọn" -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content bg-success">
-                    <div class="modal-header">
-                    <h1 class="modal-title fs-3 text-uppercase text-info" id="exampleModalLabel">Tùy chọn của bài đăng</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="text-white">Bạn muốn làm gì với bài đăng này?</p>
-                    <a class="btn btn-secondary" href="{% url 'post-update' post.pk %}">Sửa bài đăng</a>
-                    <a class="btn btn-danger" href="{% url 'post-delete' post.pk %}">Xóa bài đăng</a>
-                    <a href="{% url 'post-detail' post.pk %}" class="btn btn-info">Xem chi tiết</a>
-                    <a href="{% url 'add-comment' post.pk %}" class="btn btn-primary">Viết bình luận</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</article>
+        </article>
     {% empty %}
-    {% csrf_token %}
-    {% if not user.is_authenticated %}
-    <h3 class="text-danger">Chưa có bài đăng nào, bạn chưa đăng nhập.</h3>
-    <p class="text-muted">Đăng nhập để thêm bài đăng mới.</p>
-    <a href="{% url 'login' %}" class="btn btn-primary">Đăng nhập</a>
-    {% else %}
-            <h3 class="text-danger">Chưa có bài đăng nào.</h3>
-            <p class="text-muted">Để thêm bài đăng mới, bấm chuột vào nút "Thêm bài mới".</p>
-            <a href="{% url 'post-create' %}" class="btn btn-primary">Thêm bài mới</a>
+        {% csrf_token %}
+        {% if not user.is_authenticated %}
+            <h3 class="text-danger">Chưa có bài đăng nào, bạn chưa đăng nhập.</h3>
+            <p class="text-muted">Đăng nhập để thêm bài đăng mới.</p>
+            <a href="{% url 'login' %}" class="btn btn-primary">Đăng nhập</a>
+        {% else %}
+                <h3 class="text-danger">Chưa có bài đăng nào.</h3>
+                <p class="text-muted">Để thêm bài đăng mới, bấm chuột vào nút "Thêm bài mới".</p>
+                <a href="{% url 'post-create' %}" class="btn btn-primary">Thêm bài mới</a>
         {% endif %}
     {% endfor %}
     <nav aria-label="Page navigation" class="mt-4">
