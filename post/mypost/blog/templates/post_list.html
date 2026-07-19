@@ -30,8 +30,8 @@
                     <p class="text-white">Bạn muốn làm gì với bài đăng này?</p>
                     <a class="btn btn-secondary" href="{% url 'post-update' post.pk %}">Sửa bài đăng</a>
                     <a class="btn btn-danger" href="{% url 'post-delete' post.pk %}">Xóa bài đăng</a>
-                    <a href="{% url 'post-detail' post.pk %}" class="btn btn-primary">Xem chi tiết</a>
-                    <a href="{% url 'add-comment' post.pk %}" class="btn btn-success">Viết bình luận</a>
+                    <a href="{% url 'post-detail' post.pk %}" class="btn btn-info">Xem chi tiết</a>
+                    <a href="{% url 'add-comment' post.pk %}" class="btn btn-primary">Viết bình luận</a>
                 </div>
             </div>
         </div>
