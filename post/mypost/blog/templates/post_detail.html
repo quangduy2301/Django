@@ -3,7 +3,7 @@
     <hr>
     <h1 class="text-uppercase text-primary">{{ post.title }}</h1>
     <article>
-        <p class="text-muted fs-5">Bởi {{ post.author.username }} vào {{ post.created_at|date:"d/m/Y" }}</p>
+        <p class="text-muted">Bởi {{ post.author.username }} vào {{ post.created_at|date:"d/m/Y" }}</p>
         {% if user == post.author %}
             <div>
                 <a class="btn btn-secondary" href="{% url 'post-update' post.pk %}">Sửa bài đăng</a>
